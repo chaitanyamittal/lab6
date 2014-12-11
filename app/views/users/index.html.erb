@@ -2,7 +2,18 @@
   <div class="col-lg-6">
     <% @users.each do |user| %>
       <h4><%= user.name %></h4>
+      <h3><%= user.name %></h3>
       <p>Badges: <%= user.num_badges %></p>
+       	<% if user.pokemons.length == 0 %>
+       		<h4>No Pokemon!</h4>
+       	<% else %>
+       		<h4>Pokemons:</h4>
+       <% end %>
+        <ul>
+          <% user.pokemons.each do |pokemon| %>
+            <li><%= pokemon.name %>: <%= pokemon.level %></li>
+          <% end %>
+        </ul>
     <% end %>
   </div>
 </div>
